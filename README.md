@@ -51,6 +51,9 @@ Get a locale object for the given prototype. The type of the prototype is determ
 
 As this is the "smart" function, it does more work than the specific ones, so it can be slower. This shouldn't be much of a concern, but if you really care about data stage performance for whatever reason and you know the type of the prototype in advance, you can save some time by calling the specific function for that type directly.
 
+## _`of(name, type)`_ ##
+Shorthand for `locale.of(prototypes.find(name, type))`.
+
 ## _`of_recipe(prototype)`_ ##
 Get a locale object for the given prototype, assuming it's a recipe.
 
@@ -71,6 +74,9 @@ All the icons in this module are returned in the `icons`-only format. This means
 Get the icons for the given prototype. The type of the prototype is determined automatically and the proper algorithm is used to resolve the icons. This is the preferred way to use the module as it is future-proof in case some prototype is changed to require a special algorithm.
 
 The same disclaimer applies as for `locale.of()`.
+
+## _`of(name, type)`_ ##
+Shorthand for `icons.of(prototypes.find(name, type))`.
 
 ## _`of_recipe(prototype)`_ ##
 Get the icons for the given prototype, assuming it's a recipe.
