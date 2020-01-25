@@ -5,6 +5,7 @@ function _M.parse_product(product)
 --- Get the given product in the `{name = ..., type = ..., ...}` format.
 	if type(product) == 'string' then return {name = product, type = 'item'}; end
 	local res = table.deepcopy(product)
+	if not product.type then product.type = 'item'; end
 	if not product.name then product.name = product[1]; end
 	if not product.amount then product.amount = product[2]; end
 	product[1] = nil
