@@ -1,0 +1,12 @@
+---------------------------------------------------------------------------------------------------
+Version: 1.0.1
+Date: 25. 01. 2020
+  Bugfixes:
+    - Fixed that recipes.parse_product didn't return type for some formats (#1)
+  Changes:
+    - locale.of and icons.of can now be called with a name and type instead of a full prototype
+---------------------------------------------------------------------------------------------------
+Version: 1.0.0
+Date: 22. 01. 2020
+  Other:
+    - Initial release
