@@ -64,8 +64,9 @@ local custom_resolvers = {
 	['recipe'] = _M.of_recipe,
 	['item'] = _M.of_item,
 }
-function _M.of(prototype)
+function _M.of(prototype, type)
 --- Get the locale of the given prototype.
+	if type ~= nil then prototype = prototypes.find(prototype, type); end
 	local locale_type = prototypes.inherits(prototype.type, _M.localised_types)
 	assert(locale_type, ("%s doesn't support localization"):format(prototype.type))
 	

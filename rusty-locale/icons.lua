@@ -37,8 +37,9 @@ function _M.of_recipe(prototype)
 end
 
 
-function _M.of(prototype)
+function _M.of(prototype, type)
 --- Get the icons of the given prototype.
+	if type ~= nil then prototype = prototypes.find(prototype, type); end
 	if prototypes.inherits(prototype.type, 'recipe') then return _M.of_recipe(prototype)
 	else return _M.of_generic(prototype); end
 end
