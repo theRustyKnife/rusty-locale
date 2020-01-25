@@ -4,6 +4,6 @@
 	"factorio_version": "0.18",
 	"title": "Rusty's Locale Utilities",
 	"author": "TheRustyKnife",
-	"description": "A set of helper functions for resolving proper localised names and descriptions of prototypes, including recipes and items. There are also utilies for resolving prototype icons, because why not?",
+	"description": "A set of helper functions for resolving proper localised names and descriptions of prototypes, including recipes and items. There are also utilities for resolving prototype icons, because why not?",
 	"dependencies": []
 }
