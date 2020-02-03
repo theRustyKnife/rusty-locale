@@ -17,6 +17,7 @@ return {
 		blueprint = 'selection-tool',
 		['blueprint-book'] = 'item-with-inventory',
 		boiler = 'entity-with-health',
+		['burner-generator'] = 'generator',
 		capsule = 'item',
 		car = 'vehicle',
 		['cargo-wagon'] = 'rolling-stock',
@@ -232,7 +233,9 @@ return {
 					},
 					['electric-pole'] = {},
 					fish = {},
-					generator = {},
+					generator = {
+						['burner-generator'] = {},
+					},
 					['heat-pipe'] = {},
 					inserter = {},
 					lab = {},
