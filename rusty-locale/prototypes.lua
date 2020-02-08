@@ -22,13 +22,25 @@ function _M.inherits(t, bases)
 	else return inherits(t, bases); end
 end
 
-function _M.find(name, type)
+function _M.find(name, type, silent)
 --- Find the prototype with the given name, whose type inherits from the given type, or nil if it doesn't exist.
 	for t, prototypes in pairs(data.raw) do
 		local prototype = prototypes[name]
 		if prototype and _M.inherits(t, type) then return prototype; end
 	end
-	return nil
+	if silent then return nil; end
+	
+	local existing_types = {}
+	for t, _ in pairs(_M.find_by_name(name)) do table.insert(existing_types, t); end
+	error(("No prototype called `%s` found for type `%s`, these prototypes with the name exist: %s\nPlease report this to https://mods.factorio.com/mod/rusty-locale")
+		:format(name, type, serpent.line(existing_types)))
+end
+
+function _M.find_by_name(name)
+--- Find all prototypes with the given name. Returns a table of {type: prototype}.
+	local results = {}
+	for t, prototypes in pairs(data.raw) do results[t] = prototypes[name]; end
+	return results
 end
 
 
