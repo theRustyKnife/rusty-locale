@@ -30,7 +30,7 @@ function _M.of_item(prototype)
 --- Get the locale of the given item.
 	return util.resolver {
 		place_result = function()
-			return prototype.place_result and _M.of_generic(prototypes.find(prototype.place_result, 'entity'), 'entity') or false
+			return prototype.place_result and prototype.place_result ~= '' and _M.of_generic(prototypes.find(prototype.place_result, 'entity'), 'entity') or false
 		end,
 		placed_as_equipment_result = function()
 			return prototype.placed_as_equipment_result and _M.of_generic(prototypes.find(prototype.placed_as_equipment_result, 'equipment'), 'equipment') or false
