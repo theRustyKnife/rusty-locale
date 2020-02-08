@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.5
+Date: 08. 01. 2020
+  Bugfixes:
+    - Fixed that place_result wasn't validated correctly
+  Changes:
+    - Added prototypes.find_by_name
+    - prototypes.find now takes a third argument - silent. This means that by default the function will throw an error if the prototype isn't found now.
+---------------------------------------------------------------------------------------------------
 Version: 1.0.4
 Date: 08. 01. 2020
   Bugfixes:
