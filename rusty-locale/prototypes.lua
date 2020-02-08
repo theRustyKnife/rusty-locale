@@ -4,9 +4,15 @@ local hierarchy = require '__rusty-locale__.type-hierarchy'
 local _M = {}
 
 
+local function is_known(type)
+	return hierarchy.top_down[type] or hierarchy.bottom_up[type]
+end
+
+
 function _M.descendants(type)
 --- Get the tree of descendants, rooted at the given type, or nil if the type doesn't exist.
 	if type == nil then return hierarchy.bottom_up; end
+	if not is_known(type) then log(("Checking descendants of unknown type `%s`!"):format(type)) end
 	return _M.descendants(hierarchy.top_down[type])[type]
 end
 
@@ -18,8 +24,9 @@ end
 function _M.inherits(t, bases)
 --- Check if type is a descendant either a single base prototype or any of several prototypes provided as a table {string: boolean}.
 --- This returns the type that matched, or nil of none did.
-	if type(bases) ~= 'table' then return inherits(t, {[bases] = true})
-	else return inherits(t, bases); end
+	if type(bases) ~= 'table' then return _M.inherits(t, {[bases] = true}); end
+	if not is_known(t) then log(("Checking inheritance of unknown type `%s`!"):format(t)) end
+	return inherits(t, bases)
 end
 
 function _M.find(name, type, silent)
