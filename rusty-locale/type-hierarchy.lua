@@ -120,6 +120,7 @@ return {
 		['fluid-turret'] = 'turret',
 		gate = 'entity-with-health',
 		loader = 'transport-belt-connectable',
+		['loader-1x1'] = 'loader',
 		['offshore-pump'] = 'entity-with-health',
 		['power-switch'] = 'entity-with-health',
 		['rail-chain-signal'] = 'rail-signal-base',
@@ -263,7 +264,9 @@ return {
 						splitter = {},
 						['transport-belt'] = {},
 						['underground-belt'] = {},
-						loader = {},
+						loader = {
+							['loader-1x1'] = {},
+						},
 					},
 					['train-stop'] = {},
 					tree = {},
