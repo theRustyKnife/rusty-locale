@@ -88,14 +88,17 @@ Get the icons for the given prototype, assuming it doesn't use any special forma
 # **`prototypes`** #
 These are utilties to work with the prototype inheritance tree.
 
-## _`find(name, type)`_ ##
-Find a prototype with the given name, whose type inherits from the given type.
+## _`find(name, type, silent)`_ ##
+Find a prototype with the given name, whose type inherits from the given type. If silent is `true`, `nil` will be returned if no prototype is found, otherwise an error is thrown (default is `false`).
 
 This is particularly useful for finding prototypes of recipe products where you may only know the name and that it's an item/fluid, not the exact type. For example:
 ```lua
 prototypes.of('firearm-magazine', 'item')
 ```
 would give you the prototype for `firearm-magazine`, eventhough the actual type is `ammo`, not `item`.
+
+## _`find_by_name(name)`_ ##
+Find all the prototypes with the given name. Returns a table of {type: prototype}.
 
 ## _`inherits(type, base)`_ ##
 Check if the given type is a descendant of the given base. If it does, the name of the base is returned, or `nil` if it doesn't.
