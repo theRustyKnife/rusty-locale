@@ -42,9 +42,10 @@ function _M.of_recipe(prototype, silent)
 end
 
 
-function _M.of(prototype, type, silent)
+function _M.of(prototype, ptype, silent)
 --- Get the icons of the given prototype.
-	if type ~= nil then prototype = prototypes.find(prototype, type); end
+	if type(ptype) == 'string' then prototype = prototypes.find(prototype, ptype)
+	elseif type(ptype) == 'boolean' then silent = ptype; end
 	if prototypes.inherits(prototype.type, 'recipe') then return _M.of_recipe(prototype, silent)
 	else return _M.of_generic(prototype, silent); end
 end
