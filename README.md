@@ -70,19 +70,25 @@ This is a table mapping the prototype types that support localisation to `true` 
 # **`icons`** #
 All the icons in this module are returned in the `icons`-only format. This means that it is safe to use the results in a prototype just by setting them to `icons`.
 
-## _`of(prototype)`_ ##
+## _`of(prototype, silent)`_ ##
 Get the icons for the given prototype. The type of the prototype is determined automatically and the proper algorithm is used to resolve the icons. This is the preferred way to use the module as it is future-proof in case some prototype is changed to require a special algorithm.
+
+If silent is `true`, `nil` will be returned when no valid icons definition could be found, instead of throwing an error.
 
 The same disclaimer applies as for `locale.of()`.
 
-## _`of(name, type)`_ ##
-Shorthand for `icons.of(prototypes.find(name, type))`.
+## _`of(name, type, silent)`_ ##
+Shorthand for `icons.of(prototypes.find(name, type), silent)`.
 
-## _`of_recipe(prototype)`_ ##
+## _`of_recipe(prototype, silent)`_ ##
 Get the icons for the given prototype, assuming it's a recipe.
 
-## _`of_generic(prototype)`_ ##
+If silent is `true`, `nil` will be returned when no valid icons definition could be found, instead of throwing an error.
+
+## _`of_generic(prototype, silent)`_ ##
 Get the icons for the given prototype, assuming it doesn't use any special format.
+
+If silent is `true`, `nil` will be returned when no valid icons definition could be found, instead of throwing an error.
 
 
 # **`prototypes`** #
