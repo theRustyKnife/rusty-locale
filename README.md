@@ -73,12 +73,14 @@ All the icons in this module are returned in the `icons`-only format. This means
 ## _`of(prototype, silent)`_ ##
 Get the icons for the given prototype. The type of the prototype is determined automatically and the proper algorithm is used to resolve the icons. This is the preferred way to use the module as it is future-proof in case some prototype is changed to require a special algorithm.
 
-If silent is `true`, `nil` will be returned when no valid icons definition could be found, instead of throwing an error.
+If silent is `true`, `nil` will be returned when no valid icons definition could be found, instead of throwing an error. This also applies to `prototype` being `nil`.
 
 The same disclaimer applies as for `locale.of()`.
 
 ## _`of(name, type, silent)`_ ##
 Shorthand for `icons.of(prototypes.find(name, type), silent)`.
+
+Note that the `silent` parameter is not passed through to `prototypes.find()`, so a non-existent prototype will still throw an error. If that's a problem, use the full form instead: `icons.of(prototypes.find(name, type, silent), silent)`. This way it's clear which errors you want to ignore, but be aware that it doesn't make sense to call this like `icons.of(prototypes.find(name, type, true), false)`, as the potential `nil` coming from `prototypes.find()` will always result in an error, so you may as well just let the more descriptive error be thrown right away instead.
 
 ## _`of_recipe(prototype, silent)`_ ##
 Get the icons for the given prototype, assuming it's a recipe.
@@ -95,16 +97,16 @@ If silent is `true`, `nil` will be returned when no valid icons definition could
 These are utilties to work with the prototype inheritance tree.
 
 ## _`find(name, type, silent)`_ ##
-Find a prototype with the given name, whose type inherits from the given type. If silent is `true`, `nil` will be returned if no prototype is found, otherwise an error is thrown (default is `false`).
+Find a prototype with the given name, whose type inherits from the given type. If silent is `true`, `nil` will be returned if no prototype is found, otherwise an error is thrown (default is `false`). Note that this also applies to `name` being `nil`, but `type` being `nil` will always result in an error - use `prototypes.find_by_name()` to search by name only instead.
 
 This is particularly useful for finding prototypes of recipe products where you may only know the name and that it's an item/fluid, not the exact type. For example:
 ```lua
-prototypes.of('firearm-magazine', 'item')
+prototypes.find('firearm-magazine', 'item')
 ```
 would give you the prototype for `firearm-magazine`, eventhough the actual type is `ammo`, not `item`.
 
 ## _`find_by_name(name)`_ ##
-Find all the prototypes with the given name. Returns a table of {type: prototype}.
+Find all the prototypes with the given name. Returns a table of `{type: prototype}`.
 
 ## _`inherits(type, base)`_ ##
 Check if the given type is a descendant of the given base. If it does, the name of the base is returned, or `nil` if it doesn't.
