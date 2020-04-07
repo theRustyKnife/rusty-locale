@@ -50,7 +50,11 @@ end
 function _M.of(prototype, ptype, silent)
 --- Get the icons of the given prototype.
 	if type(ptype) == 'string' then prototype = prototypes.find(prototype, ptype)
+	elseif prototype == nil then
+		if silent then return nil; end
+		error "Can't get icons of nil prototype"
 	elseif type(ptype) == 'boolean' then silent = ptype; end
+	
 	if prototypes.inherits(prototype.type, 'recipe') then return _M.of_recipe(prototype, silent)
 	else return _M.of_generic(prototype, silent); end
 end

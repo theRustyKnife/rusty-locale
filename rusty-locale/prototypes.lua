@@ -31,6 +31,12 @@ end
 
 function _M.find(name, type, silent)
 --- Find the prototype with the given name, whose type inherits from the given type, or nil if it doesn't exist.
+	if type == nil then error "find needs a type - use find_by_name to search by name only instead."; end
+	if name == nil then
+		if silent then return nil; end
+		error "Can't find a prototype with nil name"
+	end
+	
 	for t, prototypes in pairs(data.raw) do
 		local prototype = prototypes[name]
 		if prototype and _M.inherits(t, type) then return prototype; end
