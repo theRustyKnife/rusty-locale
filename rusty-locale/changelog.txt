@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.7
+Date: 07. 04. 2020
+  Changes:
+    - Better validation of icons format, meaning that querying prototypes for icons should either return valid icons or throw an error, instead of returning invalid or partial icons definitions.
+    - icons.of() and prototypes.find() should now handle nil parameters properly (https://github.com/theRustyKnife/rusty-locale/issues/2)
+---------------------------------------------------------------------------------------------------
 Version: 1.0.6
 Date: 21. 03. 2020
   Changes:
