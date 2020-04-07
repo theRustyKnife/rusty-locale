@@ -10,23 +10,28 @@ function _M.of_generic(prototype, silent)
 	if prototype.icons then
 		local icons = {}
 		for i, icon in pairs(prototype.icons) do
-			if icon.icon_size then icons[i] = icon
+			if icon.icon and icon.icon_size then icons[i] = icon
 			else
-				if not prototype.icon_size then
+				local icon_size = icon.icon_size or prototype.icon_size
+				if not icon_size or not icon.icon then
 					if silent then return nil; end
-					error(("%s/%s doesn't specify icon_size correctly"):format(prototype.type, prototype.name))
+					error(("%s/%s doesn't specify icons correctly"):format(prototype.type, prototype.name))
 				end
 				
 				local new = {}
 				for k, v in pairs(icon) do new[k] = v; end
-				new.icon_size = prototype.icon_size
+				new.icon_size = icon_size
 				icons[i] = new
 			end
 		end
 		return icons
 	end
-	if prototype.icon then return {{icon = prototype.icon, icon_size = prototype.icon_size}}; end
-	return nil;
+	
+	if not prototype.icon or not prototype.icon_size then
+		if silent then return nil; end
+		error(("%s/%s doesn't specify icons correctly"):format(prototype.type, prototype.name))
+	end
+	return {{icon = prototype.icon, icon_size = prototype.icon_size}}
 end
 
 function _M.of_recipe(prototype, silent)
