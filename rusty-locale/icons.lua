@@ -36,12 +36,17 @@ end
 
 function _M.of_recipe(prototype, silent)
 --- Get icons for the given recipe prototype.
-	local icons = _M.of_generic(prototype, silent)
+	local icons = _M.of_generic(prototype, true)
 	if icons then return icons; end
 	
 	local product
 	if prototype.normal ~= nil then product = recipes.partial.get_main_product(prototype.normal)
 	else product = recipes.partial.get_main_product(prototype); end
+	
+	if not product then
+		if silent then return nil; end
+		error(("%s/%s doesn't specify icons correctly"):format(prototype.type, prototype.name))
+	end
 	
 	return product and _M.of(product.name, product.type, silent)
 end
