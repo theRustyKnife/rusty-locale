@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.8
+Date: 15. 04. 2020
+  Bugfixes:
+    - Fixed that icons.of_recipe errored whenever the recipe didn't specify it's own icons, regardless of whether it should inherit them from products.
+---------------------------------------------------------------------------------------------------
 Version: 1.0.7
 Date: 07. 04. 2020
   Changes:
