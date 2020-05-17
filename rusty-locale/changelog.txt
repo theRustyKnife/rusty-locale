@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.9
+Date: 17. 05. 2020
+  Bugfixes:
+    - Fixed that recipes.parse_product didn't copy the product correctly (https://mods.factorio.com/mod/rusty-locale/discussion/5ec03b5a5a04b0000cf7de71).
+---------------------------------------------------------------------------------------------------
 Version: 1.0.8
 Date: 15. 04. 2020
   Bugfixes:
