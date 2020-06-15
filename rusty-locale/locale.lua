@@ -6,7 +6,7 @@ local recipes = require '__rusty-locale__.recipes'
 local _M = {}
 
 
-local function remove_trailing_level(protoype_name)
+local function remove_trailing_level(prototype_name)
 	-- locale key for levelled technologies is the technology name with the level removed
 	return prototype_name:gsub("-%d+$", "")
 end
