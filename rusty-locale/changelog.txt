@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.10
+Date: 15. 06. 2020
+  Bugfixes:
+    - Levelled technology locale is now handled properly (https://github.com/theRustyKnife/rusty-locale/pull/3)
+---------------------------------------------------------------------------------------------------
 Version: 1.0.9
 Date: 17. 05. 2020
   Bugfixes:
