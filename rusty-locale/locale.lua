@@ -6,10 +6,19 @@ local recipes = require '__rusty-locale__.recipes'
 local _M = {}
 
 
+local function remove_trailing_level(protoype_name)
+	-- locale key for levelled technologies is the technology name with the level removed
+	return prototype_name:gsub("-%d+$", "")
+end
+
 local function key_of(prototype, type, locale_type)
 --- Get the default locale key for the given prototype and key type (name or description).
 	if not locale_type then locale_type = prototypes.inherits(prototype.type, _M.localised_types); end
-	return {('%s-%s.%s'):format(locale_type, type, prototype.name)}
+	local prototype_name = prototype.name
+	if locale_type == 'technology' then
+		prototype_name = remove_trailing_level(prototype_name)
+	end
+	return {('%s-%s.%s'):format(locale_type, type, prototype_name)}
 end
 
 
