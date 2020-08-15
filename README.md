@@ -70,6 +70,8 @@ This is a table mapping the prototype types that support localisation to `true` 
 # **`icons`** #
 All the icons in this module are returned in the `icons`-only format. This means that it is safe to use the results in a prototype just by setting them to `icons`.
 
+*Note that the spidertron remote also requires* `icon_color_indicator_mask` *and* `icon_size` *to be specified in the root of the prototype. You won't get those from the functions here at all, which shouldn't be an issue in most cases, but make sure to handle them yourself if you do need to (for example if you're creating your own spidertron remote)*
+
 ## _`of(prototype, silent)`_ ##
 Get the icons for the given prototype. The type of the prototype is determined automatically and the proper algorithm is used to resolve the icons. This is the preferred way to use the module as it is future-proof in case some prototype is changed to require a special algorithm.
 
