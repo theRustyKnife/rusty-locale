@@ -10,7 +10,7 @@ function _M.of_generic(prototype, silent)
 	if prototype.icons then
 		local icons = {}
 		for i, icon in pairs(prototype.icons) do
-			if icon.icon and icon.icon_size and (not prototype.icon_mipmaps or icon.icon_mipmaps) then icons[i] = icon
+			if icon.icon and icon.icon_size then icons[i] = icon
 			else
 				local icon_size = icon.icon_size or prototype.icon_size
 				if not icon_size or not icon.icon then
@@ -21,7 +21,7 @@ function _M.of_generic(prototype, silent)
 				local new = {}
 				for k, v in pairs(icon) do new[k] = v; end
 				new.icon_size = icon_size
-				new.icon_mipmaps = new.icon_mipmaps or prototype.icon_mipmaps
+				new.icon_mipmaps = new.icon_mipmaps
 				icons[i] = new
 			end
 		end
