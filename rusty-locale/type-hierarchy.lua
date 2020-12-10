@@ -189,6 +189,7 @@ return {
 		achievement = 'prototype-base',
 		tutorial = 'prototype-base',
 		['custom-input'] = 'prototype-base',
+		['linked-container'] = 'entity-with-health',
 	},
 	bottom_up = {
 		['prototype-base'] = {
@@ -292,6 +293,7 @@ return {
 					['simple-entity-with-force'] = {},
 					['simple-entity-with-owner'] = {},
 					['heat-interface'] = {},
+					['linked-container'] = {},
 				},
 				arrow = {},
 				corpse = {
