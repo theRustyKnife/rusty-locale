@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.15
+Date: 10. 12. 2020
+  Bugfixes:
+    - Add linked-container to the prototype tree (https://mods.factorio.com/mod/rusty-locale/discussion/5fd08956d965482a86caf782)
+---------------------------------------------------------------------------------------------------
 Version: 1.0.14
 Date: 23. 11. 2020
   Changes:
