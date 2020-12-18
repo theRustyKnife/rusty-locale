@@ -124,6 +124,7 @@ return {
 		gate = 'entity-with-health',
 		loader = 'transport-belt-connectable',
 		['loader-1x1'] = 'loader',
+		['linked-belt'] = 'transport-belt-connectable',
 		['offshore-pump'] = 'entity-with-health',
 		['power-switch'] = 'entity-with-health',
 		['rail-chain-signal'] = 'rail-signal-base',
@@ -269,6 +270,7 @@ return {
 					['transport-belt-connectable'] = {
 						splitter = {},
 						['transport-belt'] = {},
+						['linked-belt'] = {},
 						['underground-belt'] = {},
 						loader = {
 							['loader-1x1'] = {},
