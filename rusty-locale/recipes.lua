@@ -29,7 +29,12 @@ function _M.partial.get_main_product(recipe)
 	if recipe.main_product == '' then return nil
 	elseif recipe.main_product ~= nil then return _M.partial.find_product(recipe, recipe.main_product)
 	elseif recipe.results then
-		if table_size(recipe.results) == 1 then return _M.parse_product(recipe.results[1])
+		if table_size(recipe.results) == 1 then 
+			if recipe.results[1] == nil then 
+				local iter = pairs(recipe.results);
+				local k,v = iter(recipe.results);
+				return _M.parse_product(v)
+			else return _M.parse_product(recipe.results[1]); end
 		else return nil; end
 	elseif recipe.result then return _M.parse_product(recipe.result); end
 	return nil
