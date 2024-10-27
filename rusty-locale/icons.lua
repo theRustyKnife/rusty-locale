@@ -12,7 +12,7 @@ function _M.of_generic(prototype, silent)
 		for i, icon in pairs(prototype.icons) do
 			if icon.icon and icon.icon_size then icons[i] = icon
 			else
-				local icon_size = icon.icon_size or prototype.icon_size
+				local icon_size = icon.icon_size or prototype.icon_size or 64
 				if not icon_size or not icon.icon then
 					if silent then return nil; end
 					error(("%s/%s doesn't specify icons correctly"):format(prototype.type, prototype.name))
@@ -28,13 +28,13 @@ function _M.of_generic(prototype, silent)
 		return icons
 	end
 	
-	if not prototype.icon or not prototype.icon_size then
+	if not prototype.icon then
 		if silent then return nil; end
 		error(("%s/%s doesn't specify icons correctly"):format(prototype.type, prototype.name))
 	end
 	return {{
 		icon = prototype.icon,
-		icon_size = prototype.icon_size,
+		icon_size = prototype.icon_size or 64,
 		icon_mipmaps = prototype.icon_mipmaps,
 	}}
 end
