@@ -1,3 +1,7 @@
+# FACTORIO 2.0 WARNING #
+The factorio 2.0 version is a very quick patch of the most obvious breakage, there are most likely things that don't work correctly. I only did this as an aid for updating dependent mods, though in the future you may be able to use [flib](https://mods.factorio.com/mod/flib) instead, or you may have to wait a while for a proper update, we'll see what happens.
+
+
 # Reporting bugs #
 Please report bugs on [GitHub](https://github.com/theRustyKnife/rusty-locale/issues).
 
